@@ -1,4 +1,4 @@
-import { Routes, BrowserRouter, Route } from "react-router-dom"
+import { Routes, HashRouter, Route } from "react-router-dom"
 import JsonGenerator from "./file/Json"
 import IfElse from "./file/IfElse"
 import CustomerNumber from "./file/CustomerNumber"
@@ -6,7 +6,7 @@ import CustomerNumber from "./file/CustomerNumber"
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/json-generator" element={<JsonGenerator />} />
           <Route path="/if-else" element={<IfElse />} />
@@ -15,7 +15,7 @@ function App() {
             element={<CustomerNumber />}
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   )
 }
