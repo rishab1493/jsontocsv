@@ -10,13 +10,10 @@ function ExportCustomerNumbers({ data }) {
     try {
       parsed = JSON.parse(jsonInput)
     } catch {
-      try {
-        // Attempt to parse JS object notation with eval (⚠️ risky in general — only safe locally)
-        parsed = eval("(" + jsonInput + ")")
-      } catch {
-        alert("❌ Invalid JSON or JavaScript-style object array.")
-        return
-      }
+      alert(
+        "❌ Invalid JSON. Please ensure the input is a valid JSON array with double quotes."
+      )
+      return
     }
 
     if (!Array.isArray(parsed)) {
@@ -24,10 +21,14 @@ function ExportCustomerNumbers({ data }) {
       return
     }
 
-    // Extract customer numbers with +91 prefix and wrap in quotes
-    const extracted = parsed.map((item) => ({
-      customerNumber: `+91${item.customer_mobile}`,
-    }))
+    const extracted = parsed
+      .filter(
+        (item) =>
+          item.customer_mobile && String(item.customer_mobile).trim().length > 0
+      )
+      .map((item) => ({
+        customerNumber: `"+91${String(item.customer_mobile).trim()}"`,
+      }))
 
     setNumber(extracted.length)
 

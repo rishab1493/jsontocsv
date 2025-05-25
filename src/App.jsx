@@ -1,15 +1,13 @@
-import { Routes, HashRouter, Route } from "react-router-dom"
+import { Routes, BrowserRouter, Route } from "react-router-dom"
 
 import CustomerNumber from "./file/CustomerNumber"
 
 function App() {
   return (
     <>
-      <HashRouter>
-        <Routes>
-          <Route path="*" element={<CustomerNumber />} />
-        </Routes>
-      </HashRouter>
+      <BrowserRouter>
+        <CustomerNumber />
+      </BrowserRouter>
     </>
   )
 }
