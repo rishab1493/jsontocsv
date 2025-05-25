@@ -27,7 +27,7 @@ function ExportCustomerNumbers({ data }) {
           item.customer_mobile && String(item.customer_mobile).trim().length > 0
       )
       .map((item) => ({
-        customerNumber: `"+91${String(item.customer_mobile).trim()}"`,
+        customerNumber: `+91${item.customer_mobile}`,
       }))
 
     setNumber(extracted.length)
