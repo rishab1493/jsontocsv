@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/json-generator" element={<JsonGenerator />} />
           <Route path="/if-else" element={<IfElse />} />
-          <Route path="/" element={<CustomerNumber />} />
+          <Route path="*" element={<CustomerNumber />} />
         </Routes>
       </HashRouter>
     </>
